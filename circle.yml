@@ -1,0 +1,23 @@
+version: 2
+
+jobs:
+   build:
+      working_directory: ~/audit-microservice
+      machine:
+         enabled: true
+      steps:
+         - checkout
+         #TODO Cache Dependencies to speed up build. For example: gradle and our used libraries, docker image we are extending, etc.
+         - run:
+            name: Build Application
+            command: ./gradlew build
+         - store_test_results:
+            path: build/test-results/test
+         - run:
+            name: Build Docker Container
+            command: docker build --rm=false -t dtran10/audit-microservice .
+         - run:
+            name: Push Docker Container
+            command: |
+               docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+               docker push dtran10/audit-microservice
