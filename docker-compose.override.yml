@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+   kafka:
+      image: spotify/kafka
+      environment:
+         ADVERTISED_HOST: kafka
+         ADVERTISED_PORT: 9092
+      ports:
+         - 9092:9092
+         - 2181:2181
+
+   app-db:
+        environment:
+            MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+            MYSQL_DATABASE: 'app'
+            MYSQL_USER: 'appuser'
+            MYSQL_PASSWORD: 'apppassword'
+        ports:
+          - 3306:3306
+
+   microservice:
+      build:
+         context: .

@@ -1,0 +1,49 @@
+# See full list of available spring boot properties here: 
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+#Application info endpoint (/info) configuration
+info:
+   app:
+      name: audit-microservice
+      description:
+      version: 0.1.0
+      contact:
+         name: Org Name
+         url: https://www.example.com
+         email:
+
+#Logging Configuration
+logging:
+   level:
+      com.dtran10.service: INFO
+      
+#Server Configuration
+server:
+  context-path: /audit-service
+
+#Database Schema Update
+#liquibase:
+#   changelog: db/changelog/db.changelog-master.yaml
+   
+# ---------- Docker Profile -------------
+---
+
+spring:
+   profiles: docker
+   
+   #Database Connection
+   datasource:
+      url: jdbc:mysql://app-db/app
+      username: appuser
+      password: apppassword
+      driver-class-name: com.mysql.jdbc.Driver
+   
+   #Kafka Connection info   
+   kafka:
+      bootstrap-servers: kafka:9092
+      consumer:
+         group-id: myGroup
+
+
+      
+      

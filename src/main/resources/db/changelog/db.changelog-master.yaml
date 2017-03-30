@@ -1,0 +1,63 @@
+databaseChangeLog:
+-  changeSet:
+      id: 1
+      author: Jason Luck
+      changes:
+      -  createTable:
+            tableName: audit_event
+            columns:
+            -  column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                     primaryKey: true
+                     nullable: false
+            -  column:
+                  name: time
+                  type: datetime
+                  constraints:
+                     nullable: false
+            -  column:
+                  name: principal
+                  type: varchar(255)
+                  constraints:
+                     nullable: false
+            -  column:
+                  name: type
+                  type: varchar(255)
+                  constraints:
+                     nullable: false
+-  changeSet:
+      id: 2
+      author: Jason Luck
+      changes:
+      -  createTable:
+            tableName: audit_event_data
+            columns:
+            -  column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                     primaryKey: true
+                     nullable: false
+            -  column:
+                  name: event_id
+                  type: int
+                  constraints:
+                     nullable: false
+            -  column:
+                  name: data_key
+                  type: varchar(255)
+                  constraints:
+                     nullable: false
+            -  column:
+                  name: data_value
+                  type: clob
+      -  addForeignKeyConstraint:
+            baseColumnNames: event_id
+            baseTableName: audit_event_data
+            constraintName: fk_audit_event
+            referencedColumnNames: id
+            referencedTableName: audit_event
