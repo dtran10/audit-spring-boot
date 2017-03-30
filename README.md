@@ -1,6 +1,6 @@
 # Java Microservice Framework
 
-[![CircleCI](https://circleci.com/gh/lucksolutions/spring-boot-microservice.svg?style=svg)](https://circleci.com/gh/lucksolutions/spring-boot-microservice)
+[![CircleCI](https://circleci.com/gh/dtran10/audit-spring-boot.svg?style=svg)](https://circleci.com/gh/dtran10/audit-spring-boot)
 
 ## Setup
 1. Build the microservice app
