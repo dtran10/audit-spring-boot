@@ -1,4 +1,4 @@
-package com.dtran10.service.audit;
+package com.dtran10.service.audit.aspect;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

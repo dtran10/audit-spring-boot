@@ -1,4 +1,4 @@
-package com.dtran10.service.audit;
+package com.dtran10.service.audit.aspect;
 
 import java.util.HashMap;
 import java.util.Map;

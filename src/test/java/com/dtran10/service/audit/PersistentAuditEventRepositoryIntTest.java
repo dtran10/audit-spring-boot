@@ -1,7 +1,5 @@
 package com.dtran10.service.audit;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.dtran10.service.AbstractBaseIntTest;
 import com.dtran10.service.audit.model.PersistentAuditEvent;
 import com.dtran10.service.audit.model.PersistentAuditEventData;
+import com.dtran10.service.audit.repository.PersistentAuditEventRepository;
 
 public class PersistentAuditEventRepositoryIntTest extends AbstractBaseIntTest {
 	

@@ -31,19 +31,8 @@ server:
 spring:
    profiles: docker
    
-   #Database Connection
    datasource:
-      url: jdbc:mysql://app-db/app
+      url: jdbc:mysql://localhost:3306/app
       username: appuser
       password: apppassword
       driver-class-name: com.mysql.jdbc.Driver
-   
-   #Kafka Connection info   
-   kafka:
-      bootstrap-servers: kafka:9092
-      consumer:
-         group-id: myGroup
-
-
-      
-      

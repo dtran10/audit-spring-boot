@@ -1,4 +1,4 @@
-package com.dtran10.service.audit;
+package com.dtran10.service.audit.repository;
 
 import java.util.Date;
 import java.util.List;

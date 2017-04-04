@@ -1,4 +1,4 @@
-package com.dtran10.service.audit;
+package com.dtran10.service.audit.repository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,7 +16,7 @@ import org.springframework.boot.actuate.audit.AuditEventRepository;
 import com.dtran10.service.audit.model.PersistentAuditEvent;
 import com.dtran10.service.audit.model.PersistentAuditEventData;
 
-public class AuditEventRepositoryAdapter implements AuditEventRepository {
+public class PersistentAuditEventRepositoryAdapter implements AuditEventRepository {
 	
 	@Autowired
 	private PersistentAuditEventRepository repository;
