@@ -35,7 +35,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 ## Endpoints
 
 ### Public
-* API Documentation - [/swagger-ui.html](http://localhost/swagger-ui.html)
+* API Documentation - [/swagger-ui.html](http://localhost:8080/audit-service/swagger-ui.html)
 
 ### Admin
 * Log Configuration - /loggers
