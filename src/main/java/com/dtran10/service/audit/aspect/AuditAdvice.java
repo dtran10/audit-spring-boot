@@ -16,6 +16,7 @@ import lombok.extern.apachecommons.CommonsLog;
 @Aspect
 @CommonsLog
 public class AuditAdvice {
+	
 	@Autowired
 	private AuditEventRepository auditRepository;
 

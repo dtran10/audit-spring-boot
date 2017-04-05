@@ -25,10 +25,10 @@ public class PersistentAuditEventData extends AbstractModelObject {
 	@GeneratedValue
 	private String id;
 	
-	@Column(nullable=false)
+	@Column(name="data_key", nullable=false)
 	private String dataKey;
 	
-	@Column(nullable=false)
+	@Column(name="data_value", nullable=false)
 	@Lob
 	private String dataValue;
 	

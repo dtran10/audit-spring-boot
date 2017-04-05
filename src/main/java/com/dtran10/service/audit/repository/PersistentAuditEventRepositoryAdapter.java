@@ -55,8 +55,12 @@ public class PersistentAuditEventRepositoryAdapter implements AuditEventReposito
 			if (entry.getValue() != null) {
 				data.setDataValue(entry.getValue().toString());
 			}
+			data.setEvent(pEvent);
 			eventData.add(data);
 		}
+		
+		pEvent.setData(eventData);
+		
 		return pEvent;
 	}
 	

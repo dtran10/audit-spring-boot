@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 
 import com.dtran10.service.AbstractBaseIntTest;
 import com.dtran10.service.audit.model.PersistentAuditEvent;
@@ -18,6 +19,7 @@ public class PersistentAuditEventRepositoryIntTest extends AbstractBaseIntTest {
 	private PersistentAuditEventRepository repository;
 	
 	@Test
+	@Rollback
 	public void save() {
 		PersistentAuditEvent entity = createEntity();
 		
@@ -30,6 +32,7 @@ public class PersistentAuditEventRepositoryIntTest extends AbstractBaseIntTest {
 	}
 	
 	@Test
+	@Rollback
 	public void saveList() {
 		PersistentAuditEvent entity = createEntity();
 		PersistentAuditEvent entity2 = createEntity();
