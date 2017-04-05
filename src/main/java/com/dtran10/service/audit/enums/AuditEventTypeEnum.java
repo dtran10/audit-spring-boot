@@ -1,8 +1,8 @@
 package com.dtran10.service.audit.enums;
 
 public enum AuditEventTypeEnum {
-	LOGGING("Logging"),
-	UNCATEGORIZED("Uncategorized");
+	LOGGING("LOGGING"),
+	UNCATEGORIZED("UNCATEGORIZED");
 	
 	private final String eventType;
 	
