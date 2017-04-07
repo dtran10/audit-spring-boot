@@ -15,16 +15,16 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 @SpringBootApplication
-@EnableGlobalMethodSecurity(securedEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableAspectJAutoProxy
 @EnableAsync
-public class Application {
+public class AuditSpringBootApp {
 	
 	protected final Log logger = LogFactory.getLog(getClass());
 	
 	public static void main(String[] args) {
 		new SpringApplicationBuilder()
-			.sources(Application.class)
+			.sources(AuditSpringBootApp.class)
 			.bannerMode(Banner.Mode.OFF)
 			.run(args);
 	}
