@@ -10,6 +10,7 @@ import org.springframework.boot.actuate.audit.AuditEventRepository;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dtran10.service.audit.enums.AuditEventTypeEnum;
 
@@ -22,6 +23,7 @@ public class AuditLoggingService {
 	@Autowired
 	private AuditEventRepository auditRepository;
 	
+	@Transactional
 	public String log(String message) {
 		String loggingMessage = "logging message: " + message;
 		
@@ -34,6 +36,7 @@ public class AuditLoggingService {
 	}
 	
 	@Async
+	@Transactional
 	public Future<String> asyncLog(String message) throws InterruptedException {
 		String loggingMessage = "asynchronously logging message: " + message;
 		

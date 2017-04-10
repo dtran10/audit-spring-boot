@@ -8,12 +8,12 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 
-import com.dtran10.service.AbstractBaseIntTest;
+import com.dtran10.service.AbstractIntTest;
 import com.dtran10.service.audit.model.PersistentAuditEvent;
 import com.dtran10.service.audit.model.PersistentAuditEventData;
 import com.dtran10.service.audit.repository.PersistentAuditEventRepository;
 
-public class PersistentAuditEventRepositoryIntTest extends AbstractBaseIntTest {
+public class PersistentAuditEventRepositoryIntTest extends AbstractIntTest {
 	
 	@Autowired
 	private PersistentAuditEventRepository repository;

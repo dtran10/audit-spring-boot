@@ -8,6 +8,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:/config/test.properties")
-public abstract class AbstractBaseIntTest {
+public abstract class AbstractIntTest {
 
 }

@@ -17,8 +17,7 @@ public class RestAPISecurityConfig extends WebSecurityConfigurerAdapter {
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
 			.authorizeRequests()
-				.antMatchers("/audit-service/**").permitAll()
+				.antMatchers("/audit-service/async-log").permitAll()
 				.antMatchers("/swagger-resoures/**").permitAll();
-//				.anyRequest().authenticated();
 	}
 }
