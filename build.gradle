@@ -11,6 +11,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+apply plugin: "jacoco"
 
 processResources {
 	filesMatching("**/*.yml") {
@@ -26,7 +27,6 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-// In this section you declare where to find the dependencies of your project
 repositories {
     mavenCentral()
 }
@@ -61,6 +61,37 @@ dependencies {
     testCompile("org.springframework.security:spring-security-test")
 }
 
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		xml.destination "${buildDir}/reports/jacoco.xml"
+		html.enabled true
+		html.destination "${buildDir}/reports/jacocoHtml"
+	}
+	afterEvaluate {
+		classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+            	'com/dtran10/service/AuditSpringBootApp**',
+            	'com/dtran10/service/DocumentationConfig**',
+            	'com/dtran10/service/model/**',
+				'com/dtran10/service/security/**',
+				'com/dtran10/service/audit/config/**',
+				'com/dtran10/service/aduit/model/**'
+            ])
+        })
+	}
+}
+
+test {
+	jacoco {
+		append = false
+		destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
+		classDumpDir = file("$buildDir/jacoco/classpathdumps")
+	}
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '3.4.1'
 }
+
+tasks.test.finalizedBy jacocoTestReport
