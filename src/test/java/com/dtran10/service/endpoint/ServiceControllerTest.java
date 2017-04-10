@@ -46,4 +46,34 @@ public class ServiceControllerTest extends AbstractControllerTest {
 		
 	}
 	
+	@Test
+	public void testLog() throws Exception {
+		
+		String content = "LOG THIS MESSAGE!";
+		String expectedResponse = "logging message: " + content;
+		
+		mvc.perform(MockMvcRequestBuilders.post("/log")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(content)
+				.accept(MediaType.APPLICATION_JSON))
+					.andExpect(status().isOk())
+					.andExpect(content().string(equalTo(expectedResponse)));
+		
+	}
+	
+	@Test
+	public void testAsyncLog() throws Exception {
+		
+		String content = "LOG THIS MESSAGE!";
+		String expectedResponse = "audit logging process kicked off";
+		
+		mvc.perform(MockMvcRequestBuilders.post("/async-log")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(content)
+				.accept(MediaType.APPLICATION_JSON))
+					.andExpect(status().isCreated())
+					.andExpect(content().string(equalTo(expectedResponse)));
+		
+	}
+	
 }
