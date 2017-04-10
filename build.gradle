@@ -76,7 +76,7 @@ jacocoTestReport {
             	'com/dtran10/service/model/**',
 				'com/dtran10/service/security/**',
 				'com/dtran10/service/audit/config/**',
-				'com/dtran10/service/aduit/model/**'
+				'com/dtran10/service/audit/model/**'
             ])
         })
 	}
